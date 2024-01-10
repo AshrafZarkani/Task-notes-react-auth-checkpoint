@@ -17,6 +17,9 @@ const AddNote = ({ show, onClose, onSave }) => {
     onSuccess: () => {
       queryClient.invalidateQueries(["notes"]);
       onClose();
+      setTitle("");
+      setTopics([]);
+      setBody("");
     },
   });
   const handleTitleChange = (e) => {
@@ -45,10 +48,8 @@ const AddNote = ({ show, onClose, onSave }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
     addNote();
-    setTitle("");
-    setTopics([]);
-    setBody("");
   };
 
   if (!show) {

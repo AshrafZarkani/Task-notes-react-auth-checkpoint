@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [userInfo, setUserInfo] = useState({});
 
+  const navigate = useNavigate();
   // getting the context value
   const [user, setUser] = useContext(UserContext);
 
@@ -15,6 +16,7 @@ const Login = () => {
     mutationFn: () => login(userInfo),
     onSuccess: () => {
       setUser(true);
+      navigate("/");
     },
   });
 
